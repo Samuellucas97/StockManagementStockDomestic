@@ -33,11 +33,10 @@ public interface IMaterialDAO {
     /**
      * Consulta o usuário no Banco de dados e retorna-o caso seja bem sucedido. 
      * Caso contrário, envia uma exceção
-     * @param login Login do usuário consultado
+     * @param id Id do material
      * @return Material consultado caso seja bem sucedido
-     * @throws DAOException 
      */
-    public Material consultar(String login) throws DAOException;
+    public Material consultar(long id);
 
     /**
      * Consulta todos os usuário no Banco de dados e retorna-o caso seja bem sucedido. 
@@ -45,6 +44,6 @@ public interface IMaterialDAO {
      * @return Lista contendo todos os usuários cadastrados no Banco de dados
      * @throws DAOException 
      */
-    public List<Material> consultarTodos() throws DAOException;
+    public List<Material> consultarTodos();
 
 }

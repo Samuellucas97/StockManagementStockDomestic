@@ -134,22 +134,19 @@ public class EletrodomesticoJpaController implements Serializable, IMaterialDAO 
     }
     
     // CONSULTA
-    public Eletrodomestico findEletrodomestico(String login) {
+    public Eletrodomestico findEletrodomestico(long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Eletrodomestico.class, login);
+            return em.find(Eletrodomestico.class, id);
         } finally {
             em.close();
         }
     }
     
     @Override
-    public Material consultar(String login) throws DAOException {
-        Eletrodomestico clienteFisico = findEletrodomestico(login);
+    public Material consultar(long id) {
+        Eletrodomestico clienteFisico = findEletrodomestico(id);
         
-        if( clienteFisico == null )
-            throw new DAOException("Eletrodomestico nao encontrado");
-		
         return clienteFisico;
     }
     
@@ -159,13 +156,10 @@ public class EletrodomesticoJpaController implements Serializable, IMaterialDAO 
      }
     
     @Override
-    public List<Material> consultarTodos() throws DAOException {
+    public List<Material> consultarTodos() {
         
         List<Eletrodomestico> clientes = findEletrodomesticoEntities();
     	ArrayList<Material> materials = new ArrayList<Material>(); 
-		
-        if( clientes == null )
-            throw new DAOException("Eletrodomestico nao encontrado");
 		
         for( Eletrodomestico i : clientes) {
             materials.add(i);

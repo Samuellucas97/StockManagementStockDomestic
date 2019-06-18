@@ -134,22 +134,19 @@ public class UtensiliosDeCozinhaJpaController implements Serializable, IMaterial
     }
     
     // CONSULTA
-    public UtensiliosDeCozinha findUtensiliosDeCozinha(String login) {
+    public UtensiliosDeCozinha findUtensiliosDeCozinha(long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(UtensiliosDeCozinha.class, login);
+            return em.find(UtensiliosDeCozinha.class, id);
         } finally {
             em.close();
         }
     }
     
     @Override
-    public Material consultar(String login) throws DAOException {
-        UtensiliosDeCozinha clienteFisico = findUtensiliosDeCozinha(login);
+    public Material consultar(long id) {
+        UtensiliosDeCozinha clienteFisico = findUtensiliosDeCozinha(id);
         
-        if( clienteFisico == null )
-            throw new DAOException("UtensiliosDeCozinha nao encontrado");
-		
         return clienteFisico;
     }
     
@@ -159,13 +156,10 @@ public class UtensiliosDeCozinhaJpaController implements Serializable, IMaterial
      }
     
     @Override
-    public List<Material> consultarTodos() throws DAOException {
+    public List<Material> consultarTodos() {
         
         List<UtensiliosDeCozinha> clientes = findUtensiliosDeCozinhaEntities();
     	ArrayList<Material> materials = new ArrayList<Material>(); 
-		
-        if( clientes == null )
-            throw new DAOException("UtensiliosDeCozinha nao encontrado");
 		
         for( UtensiliosDeCozinha i : clientes) {
             materials.add(i);

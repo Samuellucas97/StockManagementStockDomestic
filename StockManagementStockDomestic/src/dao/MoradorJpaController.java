@@ -143,11 +143,8 @@ public class MoradorJpaController implements Serializable, IUsuarioDAO {
     }
     
     @Override
-    public Usuario consultar(String login) throws DAOException {
+    public Usuario consultar(String login) {
         Morador clienteFisico = findMorador(login);
-        
-        if( clienteFisico == null )
-            throw new DAOException("Funcionario nao encontrado");
 		
         return clienteFisico;
     }
@@ -158,13 +155,10 @@ public class MoradorJpaController implements Serializable, IUsuarioDAO {
      }
     
     @Override
-    public List<Usuario> consultarTodos() throws DAOException {
+    public List<Usuario> consultarTodos() {
         
         List<Morador> clientes = findMoradorEntities();
     	ArrayList<Usuario> usuarios = new ArrayList<Usuario>(); 
-		
-        if( clientes == null )
-            throw new DAOException("Morador nao encontrado");
 		
         for( Morador i : clientes) {
             usuarios.add(i);

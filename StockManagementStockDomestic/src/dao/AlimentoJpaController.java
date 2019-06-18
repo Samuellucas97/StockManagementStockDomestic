@@ -133,22 +133,19 @@ public class AlimentoJpaController implements Serializable, IMaterialDAO {
     }
     
     // CONSULTA
-    public Alimento findAlimento(String login) {
+    public Alimento findAlimento(long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Alimento.class, login);
+            return em.find(Alimento.class, id);
         } finally {
             em.close();
         }
     }
     
     @Override
-    public Material consultar(String login) throws DAOException {
-        Alimento clienteFisico = findAlimento(login);
+    public Material consultar(long id){
+        Alimento clienteFisico = findAlimento(id);
         
-        if( clienteFisico == null )
-            throw new DAOException("Alimento nao encontrado");
-		
         return clienteFisico;
     }
     
@@ -158,15 +155,12 @@ public class AlimentoJpaController implements Serializable, IMaterialDAO {
      }
     
     @Override
-    public List<Material> consultarTodos() throws DAOException {
+    public List<Material> consultarTodos() {
         
-        List<Alimento> clientes = findAlimentoEntities();
+        List<Alimento> alimentos = findAlimentoEntities();
     	ArrayList<Material> materials = new ArrayList<Material>(); 
 		
-        if( clientes == null )
-            throw new DAOException("Alimento nao encontrado");
-		
-        for( Alimento i : clientes) {
+        for( Alimento i : alimentos) {
             materials.add(i);
         }
 		
