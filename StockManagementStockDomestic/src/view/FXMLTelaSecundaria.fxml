@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="526.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.FXMLTelaSecundariaController">
+   <children>
+      <Label fx:id="label_tipoDeUsuario" layoutX="24.0" layoutY="23.0" text="Tipo de usuario" />
+      <Label fx:id="label_nomeUsuario" layoutX="121.0" layoutY="23.0" text="Nome do usuario" />
+      <Label fx:id="label_hora" layoutX="506.0" layoutY="23.0" text="Hora:" />
+      <Label fx:id="hora" layoutX="538.0" layoutY="23.0" text="hora" />
+      <Label fx:id="label_data" layoutX="576.0" layoutY="23.0" text="Data:" />
+      <Label fx:id="data" layoutX="606.0" layoutY="23.0" text="Data" />
+      <Label fx:id="label_descricaoBusca" layoutX="182.0" layoutY="53.0" text="SELECIONE OS CAMPOS PARA A BUSCA">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <MenuButton layoutX="282.0" layoutY="91.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="Tipo de busca:">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
+      <Label fx:id="label_busca" layoutX="79.0" layoutY="131.0" text="Busca:" />
+      <TextField fx:id="textField_busca" layoutX="121.0" layoutY="127.0" prefHeight="25.0" prefWidth="243.0" promptText="Digite de acordo com o atributo buscado" />
+      <MenuButton fx:id="menuButton_atributo" layoutX="373.0" layoutY="127.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Atributo:">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
+      <Button fx:id="button_pesquisar" layoutX="495.0" layoutY="127.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" text="Pesquisar" />
+      <Button fx:id="button_limpar" layoutX="583.0" layoutY="127.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" text="Limpar" />
+      <TableView fx:id="tableView_busca" layoutX="82.0" layoutY="173.0" prefHeight="111.0" prefWidth="571.0">
+        <columns>
+          <TableColumn fx:id="column_atributo1" prefWidth="75.0" text="Atributo1" />
+          <TableColumn fx:id="column_atributo2" prefWidth="75.0" text="Atributo2" />
+            <TableColumn fx:id="column_atributo3" prefWidth="75.0" text="Atributo3" />
+            <TableColumn fx:id="column_atributo4" prefWidth="75.0" text="Atributo4" />
+            <TableColumn fx:id="column_atributo5" prefWidth="75.0" text="Atributo5" />
+            <TableColumn fx:id="column_atributo6" prefWidth="75.0" text="Atributo6" />
+            <TableColumn fx:id="column_atributo7" prefWidth="75.0" text="Atributo7" />
+        </columns>
+      </TableView>
+      <Separator fx:id="separator_busca" layoutX="82.0" layoutY="339.0" prefHeight="0.0" prefWidth="578.0" />
+      <Button fx:id="button_cadastrar" layoutX="81.0" layoutY="299.0" mnemonicParsing="false" onAction="#cadastra" prefHeight="25.0" prefWidth="83.0" text="Cadastrar" />
+      <Button fx:id="button_alterar" layoutX="182.0" layoutY="299.0" mnemonicParsing="false" onAction="#altera" prefHeight="25.0" prefWidth="69.0" text="Alterar" />
+      <Button fx:id="button_remover" layoutX="270.0" layoutY="299.0" mnemonicParsing="false" onAction="#remove" prefHeight="25.0" prefWidth="83.0" text="Remover" />
+   </children>
+</AnchorPane>
